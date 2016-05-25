@@ -27,6 +27,8 @@
 NSString *const GCMRemoteNotificationReceived = @"GCMRemoteNotificationReceived";
 NSString *const GCMRemoteNotificationRegistered = @"GCMRemoteNotificationRegistered";
 NSString *const GCMTopicSubscribed = @"GCMTopicSubscribed";
+NSString *const GCMConnected = @"GCMConnected";
+
 
 
 @implementation RNGCM
@@ -95,6 +97,8 @@ RCT_EXPORT_MODULE()
     } else {
       self.connectedToGCM = YES;
       NSLog(@"Connected to GCM");
+      [_bridge.eventDispatcher sendDeviceEventWithName:GCMConnected
+                                            body:@true];
     }
   }];
 }
