@@ -178,6 +178,9 @@ RCT_EXPORT_METHOD(requestPermissions)
   [self requestPermissions];
 }
 
+RCT_EXPORT_METHOD(connect) {
+  [self connectToGCM];
+}
 
 RCT_EXPORT_METHOD(subscribeTopic:(NSString*) topic callback: (RCTResponseSenderBlock)callback) {
   // If the app has a registration token and is connected to GCM, proceed to subscribe to the
